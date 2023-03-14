@@ -1,0 +1,40 @@
+html {
+  height: 100%;
+}
+body {
+  box-sizing: border-box;
+  background: linear-gradient(
+    65deg,
+    #1812c2,
+    #3f3ad9,
+    #1267c2,
+    #129cc2,
+    #07aefb,
+    #12cffa,
+    #01d8e4,
+    #12cffa,
+    #07aefb,
+    #129cc2,
+    #1267c2,
+    #3f3ad9,
+    #1812c2
+  );
+  background-repeat: no-repeat;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.app {
+  max-width: 700px;
+  margin: 60px auto;
+}
+
+.btn:hover {
+  color: #0b5ed7;
+  background-color: #fff;
+  font-weight: bold;
+  border: 1px solid #0b5ed7;
+}
