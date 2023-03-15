@@ -22,6 +22,9 @@
     />
     <!-- css file -->
     <link rel="stylesheet" href="src/style.css" />
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <!-- icon file -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <title>Weather App</title>
@@ -41,7 +44,7 @@
             />
           </div>
           <div class="mb-1 col-3">
-            <button type="submit" class="btn btn-primary px-4">Submit</button>
+            <button type="submit" class="btn btn-primary px-4">Search</button>
           </div>
           <div class="mb-1 col-3">
             <button type="submit" class="btn btn-primary px-4">Current</button>
@@ -53,23 +56,43 @@
         <!-- second row contains today weather and details about it -->
         <div class="row pb-4">
           <div class="col-6">
-            <div class="row"><h1 class="city">Isfahan</h1></div>
-            <div class="row"><p class="mb-0">Mar 14, Tue 12:29</p></div>
+            <div class="row"><h1 id="city">Isfahan</h1></div>
+            <div class="row">
+              <p class="mb-0" id="description">clear sky</p>
+            </div>
+            <div class="row">
+              <p class="mb-0" id="date">Mar 14, Tue 12:29</p>
+            </div>
             <div class="row">
               <p class="mb-0">
-                Humidity: <span><span class="humidity">45</span>%</span> , Wind:
-                <span><span class="wind">1</span>km/h</span>
+                Humidity:
+                <span class="weather-param"
+                  ><span id="humidity">45</span>%</span
+                >
+                , Wind:
+                <span class="weather-param"><span id="wind">1</span>km/h</span>
               </p>
             </div>
             <!-- <div class="row"><p class="mb-0">few clouds</p></div> -->
           </div>
-          <div class="offset-2 col-4 align-self-center">
+          <div class="offset-2 col-4 align-self-center pt-2">
             <img
+              id="temp-icon"
               class="main-temp-icon"
               src="images/download.png"
               alt="weather icon"
             />
-            <h1 class="main-temp-text">16 <sup>°C</sup></h1>
+            <h1 class="main-temp-text">
+              <span id="temp">16</span>
+              <sup class="temp-unit"
+                ><a href="" class="unit" id="centi">°C</a>|<a
+                  id="Faren"
+                  href=""
+                  class="unit"
+                  >°F</a
+                ></sup
+              >
+            </h1>
           </div>
         </div>
         <!-- Third row contains forecast of weather -->

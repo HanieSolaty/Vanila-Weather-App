@@ -44,11 +44,11 @@ body {
   border: 1px solid #0b5ed7;
 }
 
-.city {
+#city {
   font-weight: 600;
 }
 
-span {
+.weather-param {
   color: #0b5ed7;
 }
 
@@ -61,6 +61,16 @@ span {
   font-size: 3.4rem;
   font-weight: 600;
   padding-left: 5px;
+}
+
+.unit {
+  text-decoration: none;
+  color: #0b5ed7;
+}
+
+.temp-unit {
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .forecast-day {
