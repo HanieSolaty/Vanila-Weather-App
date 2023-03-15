@@ -52,8 +52,8 @@ body {
 }
 
 .main-temp-icon {
-  filter: brightness(0) saturate(100%) invert(27%) sepia(97%) saturate(1572%)
-    hue-rotate(203deg) brightness(88%) contrast(106%);
+  filter: brightness(0) saturate(100%) invert(65%) sepia(15%) saturate(4954%)
+    hue-rotate(192deg) brightness(107%) contrast(89%);
   display: inline-block;
   width: 60px;
   height: 60px;
@@ -107,8 +107,4 @@ body {
 
 .github-link {
   font-size: 15px;
-}
-
-h5 {
-  color: #2c70d75c;
 }

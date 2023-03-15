@@ -94,3 +94,26 @@ function toFahrenheit(e) {
 
 document.querySelector("#centi").addEventListener("click", toCentigrade);
 document.querySelector("#faren").addEventListener("click", toFahrenheit);
+
+function getCityName(response) {
+  let cityName = response.data[0].name;
+  axios.get(setApiUrl(cityName)).then(setWeatherAtrr);
+}
+
+function handleLocation(location) {
+  let lat = location.coords.latitude;
+  let lon = location.coords.longitude;
+
+  let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
+  let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(getCityName);
+}
+
+function currentLocation() {
+  navigator.geolocation.getCurrentPosition(handleLocation);
+}
+
+document
+  .querySelector("#currentBtn")
+  .addEventListener("click", currentLocation);
