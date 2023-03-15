@@ -46,6 +46,11 @@ body {
 
 #city {
   font-weight: 600;
+  text-transform: capitalize;
+}
+
+#description {
+  text-transform: capitalize;
 }
 
 .weather-param {
