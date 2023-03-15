@@ -75,6 +75,7 @@ function searchProcess(event) {
 document.querySelector("form").addEventListener("submit", searchProcess);
 document.querySelector("#searchBtn").addEventListener("click", searchProcess);
 
+// unit conversion part
 function toCentigrade(e) {
   e.preventDefault();
   document.querySelector("#centi").classList.add("active");
