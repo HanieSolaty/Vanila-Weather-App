@@ -1,10 +1,4 @@
-html {
-  height: 100%;
-}
 body {
-  min-height: 100%;
-  border: 1px solid transparent;
-
   font-family: "Kalam", cursive;
   font-family: "Source Sans Pro", sans-serif;
   box-sizing: border-box;
@@ -58,7 +52,11 @@ body {
 }
 
 .main-temp-icon {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(97%) saturate(1572%)
+    hue-rotate(203deg) brightness(88%) contrast(106%);
   display: inline-block;
+  width: 60px;
+  height: 60px;
 }
 
 .main-temp-text {
@@ -76,6 +74,16 @@ body {
 .temp-unit {
   font-size: 2rem;
   font-weight: 600;
+}
+
+.active {
+  color: #000;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: #000;
 }
 
 .forecast-day {
@@ -99,4 +107,8 @@ body {
 
 .github-link {
   font-size: 15px;
+}
+
+h5 {
+  color: #2c70d75c;
 }
