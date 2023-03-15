@@ -35,13 +35,15 @@
         <!-- first row contains searching items-->
         <div class="row pb-3">
           <div class="mb-1 col-6">
-            <input
-              type="text"
-              class="form-control"
-              id="search-city"
-              aria-describedby="search city"
-              placeholder="Enter a city.."
-            />
+            <form action="">
+              <input
+                type="text"
+                class="form-control"
+                id="search-city"
+                aria-describedby="search city"
+                placeholder="Enter a city.."
+              />
+            </form>
           </div>
           <div class="mb-1 col-3">
             <button id="searchBtn" type="submit" class="btn btn-primary px-4">
@@ -58,21 +60,19 @@
         <!-- second row contains today weather and details about it -->
         <div class="row pb-4">
           <div class="col-6">
-            <div class="row"><h1 id="city">Isfahan</h1></div>
+            <div class="row"><h1 id="city"></h1></div>
             <div class="row">
-              <p class="mb-0" id="description">clear sky</p>
+              <p class="mb-0" id="description"></p>
             </div>
             <div class="row">
-              <p class="mb-0" id="date">Mar 14, Tue 12:29</p>
+              <p class="mb-0" id="date"></p>
             </div>
             <div class="row">
               <p class="mb-0">
                 Humidity:
-                <span class="weather-param"
-                  ><span id="humidity">45</span>%</span
-                >
+                <span class="weather-param"><span id="humidity"></span>%</span>
                 , Wind:
-                <span class="weather-param"><span id="wind">1</span>km/h</span>
+                <span class="weather-param"><span id="wind"></span>km/h</span>
               </p>
             </div>
             <!-- <div class="row"><p class="mb-0">few clouds</p></div> -->
@@ -85,7 +85,7 @@
               alt="weather icon"
             />
             <h1 class="main-temp-text">
-              <span id="temp">16</span>
+              <span id="temp"></span>
               <sup class="temp-unit"
                 ><a href="" class="unit" id="centi">°C</a>|<a
                   id="Faren"
