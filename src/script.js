@@ -2,7 +2,7 @@ let tempInCentigrade;
 
 function setApiUrl(city) {
   const apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   return apiUrl;
 }
 
@@ -55,23 +55,43 @@ function setWeatherAtrr(response) {
       "src",
       `https://openweathermap.org/img/wn/${iconCode}@2x.png`
     );
+
+  // Forecast location
+  let lat = response.data.coord.lat;
+  let lon = response.data.coord.lon;
+  const apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlForecast).then(displayForecast);
 }
 
-function displayForecast() {
+function formatTime(timestamp) {
+  let forecastdate = new Date(timestamp * 1000);
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastDay = forecastdate.getDay();
+  return days[forecastDay];
+}
+
+function displayForecast(response) {
+  let days = response.data.daily;
   let forecastRow = document.querySelector("#forecast-row");
-  const days = ["Sun", "Mon", "Tue", "Wed", "Fri", "Sat"];
   forecastContent = "";
-  days.forEach((day) => {
-    forecastContent =
-      forecastContent +
-      `          <div class="col-2 forecast-day">
-            <p id="forecast-day">${day}</p>
-            <img class="pb-3" src="images/download1.png" alt="weather icon" />
+  days.forEach((day, index) => {
+    if (index > 0 && index < 7) {
+      forecastContent =
+        forecastContent +
+        `          <div class="col-2 forecast-day">
+            <p id="forecast-day">${formatTime(day.dt)}</p>
+            <img class="pb-3 forecast-temp-icon" src="https://openweathermap.org/img/wn/${
+              day.weather[0].icon
+            }@2x.png" alt="weather icon" />
             <p>
-              15<sup>°</sup><span class="tab"></span
-              ><span class="min"> 14<sup>°</sup></span>
+              ${Math.round(day.temp.max)}<sup>°</sup><span class="tab"></span
+              ><span class="min">  ${Math.round(
+                day.temp.min
+              )}<sup>°</sup></span>
             </p>
           </div>`;
+    }
   });
   forecastRow.innerHTML = forecastContent;
 }
@@ -82,7 +102,6 @@ function setDafault() {
 }
 
 setDafault();
-displayForecast();
 
 function searchProcess(event) {
   event.preventDefault();
@@ -115,6 +134,7 @@ function toFahrenheit(e) {
 document.querySelector("#centi").addEventListener("click", toCentigrade);
 document.querySelector("#faren").addEventListener("click", toFahrenheit);
 
+//Current Button functionality
 function getCityName(response) {
   let cityName = response.data[0].name;
   axios.get(setApiUrl(cityName)).then(setWeatherAtrr);
