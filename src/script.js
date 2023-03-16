@@ -57,12 +57,32 @@ function setWeatherAtrr(response) {
     );
 }
 
+function displayForecast() {
+  let forecastRow = document.querySelector("#forecast-row");
+  const days = ["Sun", "Mon", "Tue", "Wed", "Fri", "Sat"];
+  forecastContent = "";
+  days.forEach((day) => {
+    forecastContent =
+      forecastContent +
+      `          <div class="col-2 forecast-day">
+            <p id="forecast-day">${day}</p>
+            <img class="pb-3" src="images/download1.png" alt="weather icon" />
+            <p>
+              15<sup>°</sup><span class="tab"></span
+              ><span class="min"> 14<sup>°</sup></span>
+            </p>
+          </div>`;
+  });
+  forecastRow.innerHTML = forecastContent;
+}
+
 function setDafault() {
   setDate();
   axios.get(setApiUrl("isfahan")).then(setWeatherAtrr);
 }
 
 setDafault();
+displayForecast();
 
 function searchProcess(event) {
   event.preventDefault();
