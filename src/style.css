@@ -55,8 +55,8 @@ body {
   filter: brightness(0) saturate(100%) invert(65%) sepia(15%) saturate(4954%)
     hue-rotate(192deg) brightness(107%) contrast(89%);
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
 }
 
 .forecast-temp-icon {
@@ -74,24 +74,9 @@ body {
   padding-left: 5px;
 }
 
-.unit {
-  text-decoration: none;
-  color: #0b5ed7;
-}
-
 .temp-unit {
   font-size: 2rem;
   font-weight: 600;
-}
-
-.active {
-  color: #000;
-  cursor: default;
-}
-
-.active:hover {
-  text-decoration: none;
-  color: #000;
 }
 
 .forecast-day {
